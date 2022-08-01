@@ -1,43 +1,40 @@
 import {
-    validateArrayLength,
-    validateArrayMaxLength,
-    validateArrayMaxOrEqualLength,
-    validateArrayMinLength,
-    validateArrayMinOrEqualLength
+  validateArrayLength,
+  validateArrayMaxLength,
+  validateArrayMaxOrEqualLength,
+  validateArrayMinLength,
+  validateArrayMinOrEqualLength
 } from '../array';
 import {
-    validateStringNonEmpty,
-    validateStringIsEqual,
-    validateIsRequired,
-    validateEmail,
-    validateRegex
+  validateStringNonEmpty,
+  validateStringIsEqual,
+  validateIsRequired,
+  validateEmail,
+  validateRegex
 } from '../string';
-import {Primitive, validationResponse, ValidatorFunction} from '../types';
+import { Primitive, validationResponse, ValidatorFunction } from '../types';
 
 export default function useValidator() {
-    function multipleValidate(
-        data: Primitive,
-        validators: ValidatorFunction[]
-    ): validationResponse {
-        for (const validation of validators) {
-            const responseObj = validation(data);
-            if (!responseObj.isValid) return responseObj;
-        }
-
-        return {isValid: true};
+  function multipleValidate(data: Primitive, validators: ValidatorFunction[]): validationResponse {
+    for (const validation of validators) {
+      const responseObj = validation(data);
+      if (!responseObj.isValid) return responseObj;
     }
 
-    return {
-        validateArrayMinOrEqualLength,
-        validateArrayMaxOrEqualLength,
-        validateStringNonEmpty,
-        validateArrayMaxLength,
-        validateArrayMinLength,
-        validateStringIsEqual,
-        validateArrayLength,
-        validateIsRequired,
-        multipleValidate,
-        validateRegex,
-        validateEmail
-    };
+    return { isValid: true };
+  }
+
+  return {
+    validateArrayMinOrEqualLength,
+    validateArrayMaxOrEqualLength,
+    validateStringNonEmpty,
+    validateArrayMaxLength,
+    validateArrayMinLength,
+    validateStringIsEqual,
+    validateArrayLength,
+    validateIsRequired,
+    multipleValidate,
+    validateRegex,
+    validateEmail
+  };
 }
