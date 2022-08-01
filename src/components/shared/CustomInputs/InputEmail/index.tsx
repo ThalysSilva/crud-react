@@ -1,12 +1,12 @@
-import React, { ChangeEvent, ReactElement } from "react";
+import React, { ChangeEvent, ReactElement } from 'react';
 
-import useInputEmail from "./hook/useInputEmail";
-import { InputModern } from "../../InputModern";
-import { ValidatorFunction } from "../../../../validators/types";
+import useInputEmail from './hook/useInputEmail';
+import { Input } from '../../Input';
+import { ValidatorFunction } from '../../../../validators/types';
 
 interface InputEmailProps {
   onChange?: (e: ChangeEvent<HTMLInputElement>) => void;
-  validatorFunctions?: ValidatorFunction[],
+  validatorFunctions?: ValidatorFunction[];
   hideValidationBar?: boolean;
   onRightIcon?: ReactElement;
   onLeftIcon?: ReactElement;
@@ -19,8 +19,8 @@ interface InputEmailProps {
 }
 
 export function InputEmail({
-  placeholder = "E-mail",
-  emailName = "email",
+  placeholder = 'E-mail',
+  emailName = 'email',
   validatorFunctions,
   hideValidationBar,
   onRightIcon,
@@ -28,12 +28,12 @@ export function InputEmail({
   onLeftIcon,
   dataTestId,
   className,
-  id,
+  id
 }: InputEmailProps) {
   const { ValidatorFunctionArray } = useInputEmail(validatorFunctions);
 
   return (
-    <InputModern
+    <Input
       validateFunctions={ValidatorFunctionArray}
       hideValidationBar={hideValidationBar}
       placeholder={placeholder}
@@ -44,7 +44,7 @@ export function InputEmail({
       className={className}
       name={emailName}
       maxLength={100}
-      type={"email"}
+      type={'email'}
       id={id}
     />
   );

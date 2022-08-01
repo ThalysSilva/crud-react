@@ -1,8 +1,8 @@
-import React, { ChangeEvent, ReactElement } from "react";
-import EyeCloseIcon from "../../../../assets/icon/EyeClose";
-import EyeOpenIcon from "../../../../assets/icon/EyeOpen";
-import useInputPassword from "./hook/useInputPassword";
-import { InputModern } from "../../InputModern";
+import React, { ChangeEvent, ReactElement } from 'react';
+import EyeCloseIcon from '../../../../assets/icon/EyeClose';
+import EyeOpenIcon from '../../../../assets/icon/EyeOpen';
+import useInputPassword from './hook/useInputPassword';
+import { Input } from '../../Input';
 
 interface InputPasswordProps {
   onChange?: (e: ChangeEvent<HTMLInputElement>) => void;
@@ -14,11 +14,11 @@ interface InputPasswordProps {
   showButton?: boolean;
   placeholder?: string;
   dataTestId?: string;
-  id?: string
+  id?: string;
 }
 export function InputPassword({
-  placeholder = "Senha",
-  passwordName = "password",
+  placeholder = 'Senha',
+  passwordName = 'password',
   highlightBorderError,
   showButton = false,
   hideValidationBar,
@@ -26,21 +26,13 @@ export function InputPassword({
   isRequired,
   onLeftIcon,
   onChange,
-  id,
+  id
 }: InputPasswordProps) {
   const { handleShowPassword, showPassword } = useInputPassword();
 
   return (
-    <InputModern
-      onRightIcon={
-        showButton ? (
-          showPassword ? (
-            <EyeOpenIcon />
-          ) : (
-            <EyeCloseIcon />
-          )
-        ) : undefined
-      }
+    <Input
+      onRightIcon={showButton ? showPassword ? <EyeOpenIcon /> : <EyeCloseIcon /> : undefined}
       className={` border-primary-white border rounded-xl `}
       highlightBorderError={highlightBorderError}
       handleRightIconClick={handleShowPassword}
@@ -54,7 +46,6 @@ export function InputPassword({
       onChange={onChange}
       maxLength={100}
       id={id}
-
     />
   );
 }
