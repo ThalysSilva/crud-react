@@ -62,11 +62,11 @@ export function Input({
     <div className={'flex flex-col h-full justify-start ' + `w-[${widthForClassName}]`}>
       <div
         className={` 
-          flex flex-row py-2  px-4 gap-4 bg-transparent text-white w-full h-10 rounded-xl  
+          flex flex-row py-2  px-4 gap-4 bg-white/10 text-white w-full h-10 rounded-xl  
           ${
             highlightBorderError && !validateResponse.isValid
-              ? 'bg-red-800/10'
-              : 'bg-white/10'
+              ? 'border border-red-800'
+              : ''
           } 
           items-center ${className ? className : ''}
         `}

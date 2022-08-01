@@ -135,7 +135,7 @@ describe(Input.name, () => {
     input.focus();
     input.blur();
 
-    await waitFor(() => expect(inputContainer.classList.contains('border-alerts-red')).toBe(true));
+    await waitFor(() => expect(inputContainer.classList.contains('border-red-800')).toBe(true));
     await waitFor(() => expect(!!input.validationMessage).toBe(true));
   });
 
@@ -155,7 +155,7 @@ describe(Input.name, () => {
     input.blur();
 
     await waitFor(() =>
-      expect(inputContainer.classList.contains('border-primary-white')).toBe(true)
+      expect(inputContainer.classList.contains('border-red-800')).not.toBe(true)
     );
     await waitFor(() => expect(!!input.validationMessage).toBe(true));
   });
