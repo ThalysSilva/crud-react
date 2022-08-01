@@ -38,7 +38,6 @@ export function Input({
     withValidationBar,
     validateResponse,
     validatorColor,
-
     onChange,
     inputRef,
     onFocus,
@@ -63,11 +62,11 @@ export function Input({
     <div className={'flex flex-col h-full justify-start ' + `w-[${widthForClassName}]`}>
       <div
         className={` 
-          flex flex-row py-2 px-4 gap-4 bg-transparent text-primary-white w-full h-10 rounded-xl border 
+          flex flex-row py-2  px-4 gap-4 bg-transparent text-white w-full h-10 rounded-xl  
           ${
             highlightBorderError && !validateResponse.isValid
-              ? 'border-alerts-red'
-              : 'border-primary-white'
+              ? 'bg-red-800/10'
+              : 'bg-white/10'
           } 
           items-center ${className ? className : ''}
         `}
@@ -89,7 +88,7 @@ export function Input({
         <input
           {...rest}
           className={` 
-            flex flex-1 w-full caret-primary-rose bg-transparent text-inherit items-center 
+            flex flex-1 w-full bg-transparent text-inherit items-center text-sm sm:text-base
             border-none focus:outline-none autofill:bg-transparent 
           `}
           defaultChecked={rest.onChange ? undefined : rest.checked}
@@ -129,10 +128,10 @@ export function Input({
       <When value={!hideMessageValidation && validateResponse.reason}>
         <div
           data-testid={'messageValidation'}
-          className={'flex flex-row gap-2 items-center pl-4 h-max mt-2'}
+          className={'flex  flex-row gap-2 items-center pl-4 h-max mt-2'}
         >
           <WarningIcon />
-          <label className={'text-alerts-red font-light text-xs leading-4'}>
+          <label className={'text-red-800 font-light text-xs leading-4'}>
             {validateResponse.reason}
           </label>
         </div>

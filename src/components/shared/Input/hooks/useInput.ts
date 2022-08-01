@@ -28,9 +28,9 @@ export default function useInput({
   inputId
 }: Props) {
   const fillColor = {
-    white: 'bg-primary-white',
-    green: 'bg-alerts-green',
-    red: 'bg-alerts-red'
+    white: 'bg-white/50 ',
+    green: 'bg-green-600',
+    red: 'bg-red-800'
   };
 
   const { multipleValidate, validateIsRequired, validateArrayMinLength, validateArrayMaxLength } =
