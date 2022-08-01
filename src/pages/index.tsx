@@ -1,10 +1,9 @@
-import type { NextPage } from 'next'
-
+import React from 'react';
+import type { NextPage } from 'next';
+import Login from './login';
 
 const Home: NextPage = () => {
-  return (
-     // todo
-)
-}
+  return <Login />;
+};
 
-export default Home
+export default Home;
