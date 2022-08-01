@@ -31,7 +31,7 @@ function MyApp({ Component, pageProps }: AppPropsWithLayout) {
     <QueryClientProvider client={queryClient}>
       <AuthProvider>
         <Head>
-          <title>{'Meu carrinho'}</title>
+          <title>{'Crud React'}</title>
           <meta name="viewport" content="initial-scale=1, width=device-width" />
         </Head>
         <Container>
