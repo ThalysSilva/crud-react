@@ -57,7 +57,7 @@
     "new-cap": "off",
     "require-jsdoc": "off",
     //"no-var": "warn",
-    "indent": ["warn", 2, { "SwitchCase": 1 }],
+    "indent": ["warn", 2, { "SwitchCase": 1 , "ignoredNodes": ["ConditionalExpression", "TemplateLiteral > *"]}],
     "max-len": [
       "warn",
       {
