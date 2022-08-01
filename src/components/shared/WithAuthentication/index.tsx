@@ -1,8 +1,8 @@
-import React from "react";
-import { useRouter } from "next/router";
-import { useEffect } from "react";
-import type { FC } from "react";
-import { useAuthContext } from "../../../hooks/useAuthContext";
+import React from 'react';
+import { useRouter } from 'next/router';
+import { useEffect } from 'react';
+import type { FC } from 'react';
+import { useAuthContext } from '../../../hooks/useAuthContext';
 
 type withAuthenticationFn = (Component: FC) => FC;
 
@@ -12,7 +12,7 @@ const WithAuthentication: withAuthenticationFn = (Component) => {
     const router = useRouter();
 
     useEffect(() => {
-      if (!isAuthenticated && !cookieIsLoading) router.push("/login");
+      if (!isAuthenticated && !cookieIsLoading) router.push('/login');
     }, [cookieIsLoading]);
 
     return isAuthenticated && !cookieIsLoading ? <Component /> : null;
