@@ -33,7 +33,6 @@ export function InputPassword({
   return (
     <Input
       onRightIcon={showButton ? showPassword ? <EyeOpenIcon /> : <EyeCloseIcon /> : undefined}
-      className={` border-primary-white border rounded-xl `}
       highlightBorderError={highlightBorderError}
       handleRightIconClick={handleShowPassword}
       type={showPassword ? `text` : `password`}
