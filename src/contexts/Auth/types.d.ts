@@ -7,6 +7,6 @@ export type AuthContextData = {
   setUser: Dispatch<SetStateAction<User>>;
   isAuthenticated: boolean;
   cookieIsLoading: boolean;
-  login: () => void;
+  signIn: () => void;
   user: User;
 };

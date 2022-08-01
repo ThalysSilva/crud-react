@@ -26,12 +26,12 @@ export function AuthProvider({ children }: AuthProviderProps) {
     loadUserFromCookies();
   }, []);
 
-  function login() {
+  function signIn() {
     // todo
   }
 
   return (
-    <AuthContext.Provider value={{ user, setUser, login, cookieIsLoading, isAuthenticated: !!user }}>
+    <AuthContext.Provider value={{ user, setUser, signIn, cookieIsLoading, isAuthenticated: !!user }}>
       {children}
     </AuthContext.Provider>
   );
