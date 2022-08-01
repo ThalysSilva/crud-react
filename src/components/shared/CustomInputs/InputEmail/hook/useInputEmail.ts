@@ -1,5 +1,5 @@
-import useValidator from "../../../../../validators/hooks/useValidator";
-import { ValidatorFunction } from "../../../../../validators/types";
+import useValidator from '../../../../../validators/hooks/useValidator';
+import { ValidatorFunction } from '../../../../../validators/types';
 
 export default function useInputEmail(validatorFunctions?: ValidatorFunction[]) {
   const { validateEmail } = useValidator();
