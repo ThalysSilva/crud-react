@@ -1,12 +1,12 @@
 export type User = {
-    token: string;
-  name: string;
-};
+  token: string;
+} | null;
 
 export type AuthContextData = {
-  setUser: Dispatch<SetStateAction<User>>;
   isAuthenticated: boolean;
   cookieIsLoading: boolean;
-  signIn: () => void;
+  SignInAdmIsLoading: boolean;
+  signInAdm: (payload: PayloadLogin, onValidateLogin: () => void) => void;
+  signOut: ()=> void;
   user: User;
 };
