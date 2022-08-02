@@ -15,7 +15,7 @@ function middleware() {
       if (token) {
         request.interceptors.request.use((requestConfig) => {
           requestConfig = { ...requestConfig };
-          requestConfig.headers = { ...requestConfig.headers, token: token };
+          requestConfig.headers = { ...requestConfig.headers, Authorization: `Bearer ${token}` };
           return requestConfig;
         });
       }
