@@ -16,7 +16,7 @@ export function ListEvents() {
   return (
     <div
       className={
-        'flex flex-col  sm:justify-between relative w-full h-fit sm:h-fit sm:w-full rounded-xl sm:shadow-2xl  min-w-[360px] p-4'
+        'flex flex-col  sm:justify-between relative w-full h-fit sm:h-fit sm:w-full rounded-xl sm:shadow-2xl  min-w-[360px] p-4 overflow-x-hidden'
       }
     >
       <ListEventsItem evento={evento} />

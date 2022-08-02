@@ -1,4 +1,5 @@
 import React from 'react';
+import PlusIcon from '../../assets/icon/Plus';
 import { ListEvents } from '../../components/pageEvent/ListEvents';
 import { Button } from '../../components/shared/Button';
 import { Container } from '../../components/shared/Container';
@@ -17,8 +18,14 @@ function Events() {
           'flex flex-col mt-[80px] relative flex-1  sm:h-fit  sm:rounded-2xl  min-w-[360px] bg-transparent p-4'
         }
       >
-        <H1 className={'flex flex-col mx-auto border-b-2 mb-4 px-2 sm:mx-4'}>{'Eventos'}</H1>
-        <ListEvents/>
+        <div className={'flex flex-row  sm:border-b-2 mb-4 px-6 pb-1 sm:px-2 sm:mx-4 justify-between items-center'}>
+          <div className={' h-10 w-10 sm:hidden'} />
+          <H1 className={'border-b-2 sm:border-0'}>{'Eventos'}</H1>
+          <button>
+            <PlusIcon />
+          </button>
+        </div>
+        <ListEvents />
       </Container>
     </div>
   );
