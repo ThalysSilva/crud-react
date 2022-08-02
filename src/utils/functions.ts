@@ -8,3 +8,18 @@ export function normalizePrice(price: string) {
 export function capitalize(string: string) {
   return string.charAt(0).toUpperCase() + string.slice(1).toLowerCase();
 }
+
+export function normalizeDateToString(date: Date) {
+  const normalizeCharacter = (character: number) => {
+    const normalizedCharacter = 
+      character.toString().length == 1 ? '0' + character.toString() : character.toString();
+    return normalizedCharacter;
+  };
+  const day = normalizeCharacter(date.getDate());
+  const month = normalizeCharacter(date.getUTCMonth() + 1);
+  const Year = normalizeCharacter(date.getFullYear());
+  const hour = normalizeCharacter(date.getHours());
+  const minute = normalizeCharacter(date.getMinutes());
+  const second = normalizeCharacter(date.getSeconds());
+  return day + '/' + month + '/' + Year + ' ' + hour + ':' + minute + ':' + second;
+}
