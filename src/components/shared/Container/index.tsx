@@ -10,7 +10,7 @@ export function Container({ children, className }: ContainerProps) {
       className={
         className
           ? className
-          : `flex min-h-screen flex-1 bg-[#000000ef] justify-start min-w-[390px] sm:justify-center sm:items-center`
+          : `flex min-h-screen flex-1 bg-[#000000ef] justify-start min-w-[470px] sm:justify-center `
       }
     >
       {children}
