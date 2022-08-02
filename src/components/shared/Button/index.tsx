@@ -24,7 +24,7 @@ export function Button(props: ButtonProps) {
     >
       {props.isLoading ? (
         <>
-          <span className="flex flex-row items-center justify-center font-normal text-lg text-primary-white leading-6 h-[100px]">{`Carregando`}</span>
+          <span className="flex flex-row items-center justify-center font-normal text-lg text-primary-white leading-6 h-full">{`Carregando`}</span>
           <LoadingSpinner />
         </>
       ) : (
