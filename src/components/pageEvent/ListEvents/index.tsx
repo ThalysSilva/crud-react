@@ -1,5 +1,5 @@
 import React from 'react';
-import { ListItem } from '../ListItem';
+import { ListEventsItem } from '../ListEventsItem';
 
 const evento = {
   id: 4,
@@ -14,10 +14,13 @@ const evento = {
 
 export function ListEvents() {
   return (
-    <div className={
-      'flex flex-col  sm:justify-between mt-[80px] relative w-full h-fit sm:h-fit sm:w-full rounded-xl sm:shadow-2xl bg-gray-700  border-0  min-w-[360px] bg-transparent p-4'
-    }>
-      <ListItem evento={evento} />
+    <div
+      className={
+        'flex flex-col  sm:justify-between relative w-full h-fit sm:h-fit sm:w-full rounded-xl sm:shadow-2xl  min-w-[360px] p-4'
+      }
+    >
+      <ListEventsItem evento={evento} />
+      <ListEventsItem evento={evento} />
     </div>
   );
 }

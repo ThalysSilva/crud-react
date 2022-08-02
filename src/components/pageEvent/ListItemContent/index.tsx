@@ -1,19 +1,43 @@
 import React from 'react';
-import { H4 } from '../../shared/Texts';
-import { DailyEvent } from '../ListItem/types';
+import { H3, H4, H5 } from '../../shared/Texts';
+import { DailyEvent } from '../ListEventsItem/types';
 
 type Props = {
   evento: DailyEvent;
 };
 
-export function ListItemContent({ evento }: Props) {
+export function ListEventsItemContent({ evento }: Props) {
   const { descricao, data, created_at, updated_at } = evento;
   return (
-    <div className={'grid grid-cols-5 gap-2'}>
-      <H4 className={'col-span-2'}>{descricao}</H4>
-      <H4 className={'col-span-1'}>{data}</H4>
-      <H4 className={'col-span-1'}>{created_at ? created_at : '- -'}</H4>
-      <H4 className={'col-span-1'}>{updated_at ? updated_at : '- -'}</H4>
+    <div className={'grid grid-rows-2 gap-2'}>
+      <div className={'flex flex-row justify-between'}>
+        <div>
+          <H3>{'Descrição'}</H3>
+          <H4>{descricao}</H4>
+        </div>
+        <div>
+          <div className={'flex flex-row justify-center items-center'}></div>
+        </div>
+      </div>
+
+      <div className={'flex flex-row justify-between items-center gap-6'}>
+        <div className={'max-w-[100px]'}>
+          <H3>{'Data'}</H3>
+          <H4>{data}</H4>
+        </div>
+
+        <div className={'flex flex-col '}>
+          <div className={'flex flex-col'}>
+            <H4>{'Criado em'}</H4>
+            <H5>{created_at ? created_at : '- -'}</H5>
+          </div>
+
+          <div className={'flex flex-col'}>
+            <H4>{'Atualizado em'}</H4>
+            <H5>{updated_at ? updated_at : '- -'}</H5>
+          </div>
+        </div>
+      </div>
     </div>
   );
 }
