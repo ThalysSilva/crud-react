@@ -13,9 +13,7 @@ export function ListEvents() {
       }
     >
       <When value={isLoading}>
-        <div className={'flex flex-1 my-auto justify-center items-center'}>
-          <LoadingSpinner />
-        </div>
+        <LoadingSpinner />
       </When>
       <When value={!isLoading}>
         {listEvents &&
