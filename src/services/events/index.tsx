@@ -20,20 +20,20 @@ export function eventsServices() {
     return await middleware.requestAxios(true).post<DailyEvent>(events.dailyEvents, payload);
   }
 
-  async function getDetailedEvent(id: number) {
-    const path = events.dailyEventDetail.replace('{id}', id.toString());
+  async function getEventDetail(id: string) {
+    const path = events.dailyEventDetail.replace('{id}', id);
     return await middleware.requestAxios(true).get<DailyEvent>(path);
   }
 
   async function updateDetailedEvent(payload: PayloadDailyEventUpdate) {
-    const path = events.dailyEventDetail.replace('{id}', payload.id.toString());
+    const path = events.dailyEventDetail.replace('{id}', payload.id);
     return await middleware
       .requestAxios(true)
       .put<DailyEvent>(path, { descricao: payload.descricao });
   }
 
-  async function removeDetailedEvent(id: number) {
-    const path = events.dailyEventDetail.replace('{id}', id.toString());
+  async function removeDetailedEvent(id: string) {
+    const path = events.dailyEventDetail.replace('{id}', id);
     return await middleware.requestAxios(true).delete<DeleteDailyEventData>(path);
   }
 
@@ -41,7 +41,7 @@ export function eventsServices() {
     updateDetailedEvent,
     removeDetailedEvent,
     createDailyEvent,
-    getDetailedEvent,
+    getEventDetail,
     getListEvents
   };
 }
