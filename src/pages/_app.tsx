@@ -7,6 +7,7 @@ import Head from 'next/head';
 import { Container } from '../components/shared/Container';
 import { AuthProvider } from '../contexts/Auth';
 import '../styles/globals.css';
+import { ToastProvider } from '../contexts/Toast';
 
 type NextPageWithLayout = NextPage & {
   getLayout?: (page: ReactElement) => ReactNode;
@@ -30,13 +31,15 @@ function MyApp({ Component, pageProps }: AppPropsWithLayout) {
   return getLayout(
     <QueryClientProvider client={queryClient}>
       <AuthProvider>
-        <Head>
-          <title>{'Crud React'}</title>
-          <meta name="viewport" content="initial-scale=1, width=device-width" />
-        </Head>
-        <Container>
-          <Component {...pageProps} />
-        </Container>
+        <ToastProvider>
+          <Head>
+            <title>{'Crud React'}</title>
+            <meta name="viewport" content="initial-scale=1, width=device-width" />
+          </Head>
+          <Container>
+            <Component {...pageProps} />
+          </Container>
+        </ToastProvider>
       </AuthProvider>
     </QueryClientProvider>
   );
