@@ -63,6 +63,7 @@
       {
         "tabWidth": 2,
         "ignoreStrings": true,
+        "ignoreTemplateLiterals": true,
         "code": 120,
         "comments": 80
       }
