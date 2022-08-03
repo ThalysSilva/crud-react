@@ -57,7 +57,7 @@ function PageEditEvent() {
               <button
                 onClick={handleOpenCalendar}
                 type="button"
-                className=" flex rounded-xl w-[100px] bg-[#3b74f2] hover:bg-[#115bfa] duration-200 p-2"
+                className=" flex rounded-xl w-[120px] justify-center items-center bg-[#3b74f2] hover:bg-[#115bfa] duration-200 p-2"
               >
                 {normalizedDateEvent}
               </button>
