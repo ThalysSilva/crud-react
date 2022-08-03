@@ -9,11 +9,13 @@ import WithAuthentication from '../../components/shared/WithAuthentication';
 import useEvents from '../../hooks/pageEvents/useEvents';
 
 function Events() {
-  const { signOut } = useEvents();
+  const { handleCreateEventClick, signOut } = useEvents();
   return (
     <div className={'flex flex-1 flex-col min-w-[450px] sm:max-w-[640px] py-5'}>
       <div className={'flex flex-col items-end h-10 w-full mb-5'}>
-        <Button onClick={signOut} className={'flex p-4  mr-5 '}>{'Efetuar Logout'}</Button>
+        <Button onClick={signOut} className={'flex p-4  mr-5 '}>
+          {'Efetuar Logout'}
+        </Button>
       </div>
       <Container
         className={
@@ -27,7 +29,7 @@ function Events() {
         >
           <div className={' h-10 w-10 sm:hidden'} />
           <H1 className={'border-b-2 sm:border-0'}>{'Eventos'}</H1>
-          <button>
+          <button className={'flex h-10 w-10 justify-center items-center'} type={'button'} onClick={handleCreateEventClick}>
             <PlusIcon />
           </button>
         </div>
