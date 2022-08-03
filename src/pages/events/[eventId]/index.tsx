@@ -1,116 +1,98 @@
 import { useRouter } from 'next/router';
-import React, { useEffect, useState } from 'react';
-import LoadingSpinner from '../../../assets/icon/LoadingSpinner';
-import { Input } from '../../../components/shared/Input';
-import { When } from '../../../components/shared/When';
+import React from 'react';
+
 import WithAuthentication from '../../../components/shared/WithAuthentication';
-import Calendar from 'react-calendar';
-import { normalizeDateToString } from '../../../utils/functions';
-import { Modal } from '../../../components/Modal';
-import 'react-calendar/dist/Calendar.css';
-import { TextArea } from '../../../components/shared/textArea';
 import { InputNumber } from '../../../components/shared/CustomInputs/InputNumber';
 import useEditEvent from '../../../hooks/pageEditEvent/useEditEvent';
+import LoadingSpinner from '../../../assets/icon/LoadingSpinner';
+import { TextArea } from '../../../components/shared/textArea';
+import { Input } from '../../../components/shared/Input';
+import { When } from '../../../components/shared/When';
+import { Modal } from '../../../components/Modal';
+import 'react-calendar/dist/Calendar.css';
+import Calendar from 'react-calendar';
+import { Button } from '../../../components/shared/Button';
+import { H4 } from '../../../components/shared/Texts';
 
 function PageEditEvent() {
   const router = useRouter();
   const { eventId } = router.query;
-  const { evento, isLoading } = useEditEvent(eventId as string);
-  const [dateEvent, setDateEvent] = useState(new Date());
-  const [showCalendar, setShowCalendar] = useState(false);
-  const [normalizedDateEvent, normalizedDateEventHour] =
-    normalizeDateToString(dateEvent).split(' ');
-  const [normalizedHour, normalizedMinute] = normalizedDateEventHour.split(':');
-
-  function handleOpenCalendar() {
-    setShowCalendar(true);
-  }
-  function handleCloseCalendar() {
-    setShowCalendar(false);
-  }
-  useEffect(() => {
-    handleCloseCalendar();
-  }, [dateEvent]);
-
-  useEffect(() => {
-    if (!evento) return;
-    const hourElement = document.getElementById('eventHour') as HTMLInputElement;
-    const minuteElement = document.getElementById('eventMinute') as HTMLInputElement;
-    const [dateString, timeString] = evento.data.split(' ');
-    const [hour, minute, second] = timeString.split(':');
-    const [year, month, day] = dateString.split('-');
-
-    setDateEvent(
-      new Date(
-        parseInt(year),
-        parseInt(month) + 1,
-        parseInt(day),
-        parseInt(hour),
-        parseInt(minute),
-        parseInt(second)
-      )
-    );
-    hourElement.value = hour;
-    minuteElement.value = minute;
-  }, [evento?.data, isLoading]);
+  const {
+    handleCloseCalendar,
+    normalizedDateEvent,
+    handleOpenCalendar,
+    isLoadingMutate,
+    isLoadingQuery,
+    setDateEvent,
+    showCalendar,
+    handleSubmit,
+    dateEvent,
+    evento
+  } = useEditEvent(eventId as string);
 
   return (
-    <div className={'flex flex-col p-4 w-full h-screen items-center justify-center bg-gray-700'}>
-      <When value={isLoading}>
-        <LoadingSpinner />
+    <div className={'flex flex-col w-full h-screen sm:w-[470px]  items-center justify-center '}>
+      <When value={isLoadingQuery}>
+        <div className={'flex flex-1 my-auto justify-center items-center'}>
+          <LoadingSpinner />
+        </div>
       </When>
-      <When value={!isLoading}>
-        <div className={'grid grid-cols-3 h-fit w-full flex-row items-center gap-6 mb-6'}>
-          <div className={'col-span-1'}>{'Título:'}</div>
-          <div className={'col-span-2'}>
-            <Input defaultValue={evento?.titulo} id={'eventTitle'} />
+      <When value={!isLoadingQuery}>
+        <form className={'flex flex-col items-center justify-center w-full h-screen sm:h-fit bg-gray-900 p-8 sm:rounded-xl'} onSubmit={handleSubmit}>
+          <div className={`relative grid grid-cols-4 h-fit w-full flex-row items-start gap-6 mb-6`}>
+            <H4 className={'flex flex-1 relative top-2 col-span-1 '}>{'Título:'}</H4>
+            <div className={'col-span-3'}>
+              <Input
+                required
+                defaultValue={evento?.titulo}
+                id={'eventTitle'}
+                autoComplete={'off'}
+              />
+            </div>
           </div>
-        </div>
 
-        <div className={'grid grid-cols-3 h-fit w-full flex-row items-center gap-6 mb-6'}>
-          <div className={'col-span-1'}>{'Data:'}</div>
-          <div className={'col-span-2'}>
-            <button
-              onClick={handleOpenCalendar}
-              type="button"
-              className=" flex rounded-xl w-[100px] bg-[#3b74f2] hover:bg-[#115bfa] duration-200 p-2"
-            >
-              {normalizedDateEvent}
-            </button>
+          <div className={'grid grid-cols-4 h-fit w-full flex-row items-center gap-6 mb-6'}>
+            <H4 className={'col-span-1'}>{'Data:'}</H4>
+            <div className={'col-span-1'}>
+              <button
+                onClick={handleOpenCalendar}
+                type="button"
+                className=" flex rounded-xl w-[100px] bg-[#3b74f2] hover:bg-[#115bfa] duration-200 p-2"
+              >
+                {normalizedDateEvent}
+              </button>
+            </div>
           </div>
-        </div>
-        <div className={'grid grid-cols-6 h-fit w-full flex-row items-center gap-6 mb-6'}>
-          <div className={'col-span-2'}>{'Hora:'}</div>
-          <div className={'col-span-1'}>
-            <InputNumber
-              min={'0'}
-              max={'24'}
-              maxLength={2}
-              className={'w-[55px]'}
-              id={'eventHour'}
-            />
+          <div className={'grid grid-cols-4 h-fit w-full flex-row items-center gap-6 mb-6'}>
+            <H4 className={'col-span-1'}>{'Hora:'}</H4>
+            <div className={'col-span-1'}>
+              <InputNumber min={0} max={24} maxLength={2} className={'w-[55px]'} id={'eventHour'} />
+            </div>
+            <H4 className={'col-span-1'}>{'Minuto:'}</H4>
+            <div className={'col-span-1'}>
+              <InputNumber
+                min={0}
+                max={60}
+                maxLength={2}
+                className={'w-[55px]'}
+                id={'eventMinute'}
+              />
+            </div>
           </div>
-          <div className={'col-span-2'}>{'Minuto:'}</div>
-          <div className={'col-span-1'}>
-            <InputNumber
-              min={'0'}
-              max={'60'}
-              maxLength={2}
-              className={'w-[55px]'}
-              id={'eventMinute'}
-            />
+          <div className={'flex h-fit w-full flex-col items-center gap-6 mb-20 outline-none'}>
+            <H4>{'Descrição'}</H4>
+            <div className={'w-full '}>
+              <TextArea
+                className={' h-[80px] w-full'}
+                id={'eventDescription'}
+                defaultValue={evento?.descricao}
+              />
+            </div>
           </div>
-        </div>
-        <div className={'flex h-fit w-full max-w-lg flex-col items-center gap-6 mb-6 outline-none'}>
-          <div>{'Descrição'}</div>
-          <div className={'w-full '}>
-            <TextArea
-              className={' h-[80px] w-full'}
-              id={'eventDescription'}
-              defaultValue={evento?.descricao}
-            />
+          <div className='flex w-full h-[60px]'>
+            <Button isLoading={isLoadingMutate}>{'Enviar'}</Button>
           </div>
-        </div>
+        </form>
         <Modal closeModal={handleCloseCalendar} show={showCalendar} closeOnBackDrop>
           <div className="rounded-xl">
             <Calendar value={dateEvent} onChange={setDateEvent} />
