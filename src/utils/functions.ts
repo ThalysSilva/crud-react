@@ -9,12 +9,18 @@ export function capitalize(string: string) {
   return string.charAt(0).toUpperCase() + string.slice(1).toLowerCase();
 }
 
+export function normalizeCharacter(character: number | string){
+  const normalizedCharacter = 
+    character.toString().length == 1 ? '0' + character.toString() : character.toString();
+  return normalizedCharacter;
+}
+
+export function reverseString(string: string){
+  return string
+}
+
 export function normalizeDateToString(date: Date) {
-  const normalizeCharacter = (character: number) => {
-    const normalizedCharacter = 
-      character.toString().length == 1 ? '0' + character.toString() : character.toString();
-    return normalizedCharacter;
-  };
+
   const day = normalizeCharacter(date.getDate());
   const month = normalizeCharacter(date.getUTCMonth() + 1);
   const Year = normalizeCharacter(date.getFullYear());
