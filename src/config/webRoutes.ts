@@ -3,7 +3,8 @@ const webRoutes = {
     base: '/login'
   },
   events: {
-    base: '/events'
+    base: '/events',
+    create: '/events/create'
   },
 };
 
