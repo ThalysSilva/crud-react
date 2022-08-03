@@ -12,7 +12,7 @@ import LockIcon from '../../assets/icon/Lock';
 export default function Login() {
   const { handleSubmit, isLoading } = useLogin();
   return (
-    <div className={'flex h-screen justify-center items-center'}>
+    <div className={'flex h-screen w-full justify-center items-center'}>
       <Container
         className={
           'flex flex-col justify-center sm:justify-between relative w-full h-screen sm:h-fit sm:w-[450px] sm:rounded-2xl sm:shadow-2xl sm:border sm:border-white/50 min-w-[360px] bg-transparent p-4'
