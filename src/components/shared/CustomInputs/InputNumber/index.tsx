@@ -13,10 +13,10 @@ interface InputNumberProps {
   className?: string;
   maxLength?: number;
   value?: number;
-  defaultValue?: number;
+  defaultValue?: number | string;
   name?: string;
-  min?: string;
-  max?: string;
+  min?: number;
+  max?: number;
   id?: string;
 }
 
@@ -36,7 +36,7 @@ export function InputNumber({
   max,
   id
 }: InputNumberProps) {
-  const { handleChange } = useInputNumber(maxLength);
+  const { handleChange } = useInputNumber(maxLength, min ,max);
   return (
     <Input
       hideMessageValidation={hideMessageValidation}
