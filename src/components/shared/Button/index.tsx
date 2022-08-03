@@ -1,5 +1,5 @@
 import React, { ReactNode } from 'react';
-import LoadingSpinner from '../../../assets/icon/LoadingSpinner';
+import LoadingSpinnerIcon from '../../../assets/icon/LoadingSpinner';
 
 type ButtonProps = {
   onClick?: (ev?: React.MouseEvent<HTMLElement>) => void;
@@ -25,7 +25,7 @@ export function Button(props: ButtonProps) {
       {props.isLoading ? (
         <>
           <span className="flex flex-row items-center justify-center font-normal text-lg text-primary-white leading-6 h-full">{`Carregando`}</span>
-          <LoadingSpinner />
+          <LoadingSpinnerIcon />
         </>
       ) : (
         props.children

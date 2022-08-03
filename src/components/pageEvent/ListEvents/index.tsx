@@ -1,5 +1,5 @@
 import React from 'react';
-import LoadingSpinner from '../../../assets/icon/LoadingSpinner';
+import LoadingSpinnerIcon from '../../../assets/icon/LoadingSpinner';
 import { When } from '../../shared/When';
 import { ListEventsItem } from '../ListEventsItem';
 import useListEvents from './hooks/useListEvents';
@@ -13,7 +13,9 @@ export function ListEvents() {
       }
     >
       <When value={isLoading}>
-        <LoadingSpinner />
+        <div className={'flex flex-1 my-auto justify-center items-center'}>
+          <LoadingSpinnerIcon />
+        </div>
       </When>
       <When value={!isLoading}>
         {listEvents &&
