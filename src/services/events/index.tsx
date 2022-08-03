@@ -6,7 +6,7 @@ import {
   PayloadDailyEventUpdate,
   DeleteDailyEventData,
   GetDailyEventData,
-  PayloadDailyEvent,
+  PayloadDailyEvent
 } from './types';
 
 export function eventsServices() {
@@ -27,9 +27,13 @@ export function eventsServices() {
 
   async function updateDetailedEvent(payload: PayloadDailyEventUpdate) {
     const path = events.dailyEventDetail.replace('{id}', payload.id);
-    return await middleware
-      .requestAxios(true)
-      .put<DailyEvent>(path, { descricao: payload.descricao });
+    const sendPayload = {
+      descricao: payload.descricao,
+      cor: undefined,
+      titulo: payload.titulo,
+      data: payload.data
+    };
+    return await middleware.requestAxios(true).put<DailyEvent>(path, sendPayload);
   }
 
   async function removeDetailedEvent(id: string) {

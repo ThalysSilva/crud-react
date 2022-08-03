@@ -11,7 +11,10 @@ export type PayloadDailyEvent = {
 
 export type PayloadDailyEventUpdate = {
   id: string;
-  descricao: string;
+  descricao?: string;
+  titulo?: string;
+  data?: string;
+  cor?: string
 };
 
 export type DeleteDailyEventData = number | {message: string}
