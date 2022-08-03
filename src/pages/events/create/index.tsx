@@ -45,7 +45,7 @@ function PageEditEvent() {
             <button
               onClick={handleOpenCalendar}
               type="button"
-              className=" flex rounded-xl w-[100px] bg-[#3b74f2] hover:bg-[#115bfa] duration-200 p-2"
+              className=" flex rounded-xl w-[120px] justify-center items-center bg-[#3b74f2] hover:bg-[#115bfa] duration-200 p-2"
             >
               {normalizedDateEvent}
             </button>
@@ -54,11 +54,11 @@ function PageEditEvent() {
         <div className={'grid grid-cols-4 h-fit w-full flex-row items-center gap-6 mb-6'}>
           <H4 className={'col-span-1'}>{'Hora:'}</H4>
           <div className={'col-span-1'}>
-            <InputNumber min={0} max={24} maxLength={2} className={'w-[55px]'} id={'eventHour'} />
+            <InputNumber min={0} max={24} maxLength={2} defaultValue={'00'} className={'w-[55px]'} id={'eventHour'} />
           </div>
           <H4 className={'col-span-1'}>{'Minuto:'}</H4>
           <div className={'col-span-1'}>
-            <InputNumber min={0} max={60} maxLength={2} className={'w-[55px]'} id={'eventMinute'} />
+            <InputNumber min={0} max={60} maxLength={2}  defaultValue={'00'} className={'w-[55px]'} id={'eventMinute'} />
           </div>
         </div>
         <div className={'flex h-fit w-full flex-col items-center gap-6 mb-20 outline-none'}>
