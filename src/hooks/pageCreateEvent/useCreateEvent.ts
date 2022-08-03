@@ -44,8 +44,6 @@ export default function useCreateEvent() {
     if (!dateEvent) return;
     const hourElement = document.getElementById('eventHour') as HTMLInputElement;
     const minuteElement = document.getElementById('eventMinute') as HTMLInputElement;
-    if (hourElement) hourElement.value = dateEvent.getHours.toString();
-    if (minuteElement) minuteElement.value = dateEvent.getMinutes.toString();
   }, []);
 
   useEffect(() => {
