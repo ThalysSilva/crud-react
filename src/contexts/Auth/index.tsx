@@ -3,9 +3,8 @@ import { useRouter } from 'next/router';
 import React, { createContext, ReactNode, useEffect, useState } from 'react';
 import useSignInAdm from '../../hooks/pageLogin/useSignInMutate';
 import useCookies from '../../hooks/useCookies';
-import { useToast } from '../../hooks/useToast';
 import { PayloadLogin, PostSignInData } from '../../services/login/types';
-import { handleAxiosError } from '../../utils/Axios/AxiosError';
+import useAxiosUtils from '../../utils/Axios/hooks/useAxiosUtils';
 import { AuthContextData, User } from './types';
 
 type AuthProviderProps = {
@@ -15,17 +14,16 @@ type AuthProviderProps = {
 export const AuthContext = createContext({} as AuthContextData);
 
 export function AuthProvider({ children }: AuthProviderProps) {
+  const { handleAxiosError } = useAxiosUtils();
   const { isLoading: SignInAdmIsLoading, mutateAsync: mutateLoginAdm } = useSignInAdm();
 
   const [cookieIsLoading, setCookieIsLoading] = useState(true);
-  const { dispatchToast } = useToast();
   const [user, setUser] = useState<User>(null);
   const { getCookie, setCookie } = useCookies();
   const router = useRouter();
 
   const onError = (err: unknown) => {
-    const { messageError } = handleAxiosError(err);
-    dispatchToast({ title: 'Error', description: messageError });
+    handleAxiosError(err);
     return;
   };
 
@@ -65,7 +63,7 @@ export function AuthProvider({ children }: AuthProviderProps) {
   function signOut() {
     setCookie('token', '');
     setUser(null);
-    router.push('/');
+    router.push('/login');
   }
 
   return (

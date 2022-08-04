@@ -1,7 +1,9 @@
 import { useMutation, useQueryClient } from '@tanstack/react-query';
+import { useRouter } from 'next/router';
+import config from '../../config';
 import { eventsServices } from '../../services/events';
 import { PayloadDailyEvent } from '../../services/events/types';
-import { handleAxiosError } from '../../utils/Axios/AxiosError';
+import useAxiosUtils from '../../utils/Axios/hooks/useAxiosUtils';
 import { useToast } from '../useToast';
 
 function handleMutate(payload: PayloadDailyEvent) {
@@ -9,17 +11,21 @@ function handleMutate(payload: PayloadDailyEvent) {
 }
 
 export default function useMutateCreateEvent() {
+  const { events } = config.webRoutes;
+  const { handleAxiosError } = useAxiosUtils();
   const { dispatchToast } = useToast();
+  const { push } = useRouter();
+
   const query = useQueryClient();
   return useMutation(handleMutate, {
     onSuccess: () => {
       query.invalidateQueries(['list-events']);
       query.invalidateQueries(['list-events']);
       dispatchToast({ title: 'Sucesso !!' });
+      push(events.base);
     },
     onError: (err) => {
-      const { messageError } = handleAxiosError(err);
-      dispatchToast({ title: 'Error !!', description: messageError });
+      handleAxiosError(err);
     }
   });
 }
