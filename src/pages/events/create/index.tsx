@@ -4,7 +4,7 @@ import WithAuthentication from '../../../components/shared/WithAuthentication';
 import useCreateEvent from '../../../hooks/pageCreateEvent/useCreateEvent';
 import { EventDetail } from '../../../components/shared/EventDetail';
 
-function PageEditEvent() {
+function PageCreateEvent() {
   const { setDateEvent, handleSubmit, isLoading, dateEvent } = useCreateEvent();
 
   return (
@@ -21,4 +21,4 @@ function PageEditEvent() {
   );
 }
 
-export default WithAuthentication(PageEditEvent);
+export default WithAuthentication(PageCreateEvent);
