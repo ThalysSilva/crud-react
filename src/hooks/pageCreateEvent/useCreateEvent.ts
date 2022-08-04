@@ -1,4 +1,4 @@
-import { FormEvent, useEffect, useState } from 'react';
+import { FormEvent, useState } from 'react';
 import { PayloadDailyEvent } from '../../services/events/types';
 
 import { normalizeCharacter, normalizeDateToString } from '../../utils/functions';
@@ -9,14 +9,7 @@ export default function useCreateEvent() {
 
   const [dateEvent, setDateEvent] = useState(new Date());
   const [normalizedDateEvent] = normalizeDateToString(dateEvent).split(' ');
-  const [showCalendar, setShowCalendar] = useState(false);
 
-  function handleOpenCalendar() {
-    setShowCalendar(true);
-  }
-  function handleCloseCalendar() {
-    setShowCalendar(false);
-  }
 
   function handleSubmit(e: FormEvent) {
     e.preventDefault();
@@ -36,25 +29,10 @@ export default function useCreateEvent() {
     const payload: PayloadDailyEvent = {
       data,titulo,descricao, cor: '#000'
     };
-
-    
     mutate(payload);
   }
-  useEffect(() => {
-    if (!dateEvent) return;
-    const hourElement = document.getElementById('eventHour') as HTMLInputElement;
-    const minuteElement = document.getElementById('eventMinute') as HTMLInputElement;
-  }, []);
-
-  useEffect(() => {
-    handleCloseCalendar();
-  }, [dateEvent]);
 
   return {
-    handleCloseCalendar,
-    normalizedDateEvent,
-    handleOpenCalendar,
-    showCalendar,
     setDateEvent,
     dateEvent,
     isLoading,
