@@ -4,7 +4,7 @@ import { InputPassword } from '../../components/shared/CustomInputs/InputPasswor
 import { InputEmail } from '../../components/shared/CustomInputs/InputEmail';
 import { Container } from '../../components/shared/Container';
 import { Button } from '../../components/shared/Button';
-import { H1, H3 } from '../../components/shared/Texts';
+import { Text1, Text3 } from '../../components/shared/Texts';
 import useLogin from '../../hooks/pageLogin/useLogin';
 import AvatarIcon from '../../assets/icon/Avatar';
 import LockIcon from '../../assets/icon/Lock';
@@ -20,7 +20,7 @@ export default function Login() {
       >
         <form className={' w-auto'} onSubmit={handleSubmit}>
           <div className={'flex w-full justify-center items-center mb-6'}>
-            <H1>{'Login'}</H1>
+            <Text1>{'Login'}</Text1>
           </div>
           <div className={'mb-6'}>
             <InputEmail
@@ -42,7 +42,7 @@ export default function Login() {
           <div className={'mb-20'} />
           <div className={'flex flex-row justify-end items-end h-10'}>
             <Button dataTestId={'buttonLogin'} isLoading={isLoading}>
-              <H3 className={'flex  justify-center items-center'}>{`Entrar`}</H3>
+              <Text3 className={'flex  justify-center items-center'}>{`Entrar`}</Text3>
             </Button>
           </div>
         </form>

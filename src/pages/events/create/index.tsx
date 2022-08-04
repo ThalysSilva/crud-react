@@ -7,7 +7,7 @@ import useCreateEvent from '../../../hooks/pageCreateEvent/useCreateEvent';
 import { TextArea } from '../../../components/shared/textArea';
 import { Button } from '../../../components/shared/Button';
 import { Input } from '../../../components/shared/Input';
-import { H4 } from '../../../components/shared/Texts';
+import { Text4 } from '../../../components/shared/Texts';
 import { Modal } from '../../../components/Modal';
 import 'react-calendar/dist/Calendar.css';
 import Calendar from 'react-calendar';
@@ -33,14 +33,14 @@ function PageEditEvent() {
         onSubmit={handleSubmit}
       >
         <div className={`relative grid grid-cols-4 h-fit w-full flex-row items-start gap-6 mb-6`}>
-          <H4 className={'flex flex-1 relative top-2 col-span-1 '}>{'Título:'}</H4>
+          <Text4 className={'flex flex-1 relative top-2 col-span-1 '}>{'Título:'}</Text4>
           <div className={'col-span-3'}>
             <Input required id={'eventTitle'} autoComplete={'off'} />
           </div>
         </div>
 
         <div className={'grid grid-cols-4 h-fit w-full flex-row items-center gap-6 mb-6'}>
-          <H4 className={'col-span-1'}>{'Data:'}</H4>
+          <Text4 className={'col-span-1'}>{'Data:'}</Text4>
           <div className={'col-span-1'}>
             <button
               onClick={handleOpenCalendar}
@@ -52,17 +52,17 @@ function PageEditEvent() {
           </div>
         </div>
         <div className={'grid grid-cols-4 h-fit w-full flex-row items-center gap-6 mb-6'}>
-          <H4 className={'col-span-1'}>{'Hora:'}</H4>
+          <Text4 className={'col-span-1'}>{'Hora:'}</Text4>
           <div className={'col-span-1'}>
             <InputNumber min={0} max={24} maxLength={2} defaultValue={'00'} className={'w-[55px]'} id={'eventHour'} />
           </div>
-          <H4 className={'col-span-1'}>{'Minuto:'}</H4>
+          <Text4 className={'col-span-1'}>{'Minuto:'}</Text4>
           <div className={'col-span-1'}>
             <InputNumber min={0} max={60} maxLength={2}  defaultValue={'00'} className={'w-[55px]'} id={'eventMinute'} />
           </div>
         </div>
         <div className={'flex h-fit w-full flex-col items-center gap-6 mb-20 outline-none'}>
-          <H4>{'Descrição'}</H4>
+          <Text4>{'Descrição'}</Text4>
           <div className={'w-full '}>
             <TextArea
               className={' h-[80px] w-full'}

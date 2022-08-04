@@ -6,7 +6,7 @@ type Props = {
   className?: string;
 };
 
-export function H1({ children, className, dataTestId }: Props) {
+export function Text1({ children, className, dataTestId }: Props) {
   return (
     <h1
       data-testid={dataTestId}
@@ -17,7 +17,7 @@ export function H1({ children, className, dataTestId }: Props) {
   );
 }
 
-export function H2({ children, className, dataTestId }: Props) {
+export function Text2({ children, className, dataTestId }: Props) {
   return (
     <h2
       data-testid={dataTestId}
@@ -28,7 +28,7 @@ export function H2({ children, className, dataTestId }: Props) {
   );
 }
 
-export function H3({ children, className, dataTestId }: Props) {
+export function Text3({ children, className, dataTestId }: Props) {
   return (
     <h3
       data-testid={dataTestId}
@@ -39,7 +39,7 @@ export function H3({ children, className, dataTestId }: Props) {
   );
 }
 
-export function H4({ children, className, dataTestId }: Props) {
+export function Text4({ children, className, dataTestId }: Props) {
   return (
     <h4 data-testid={dataTestId} className={`text-sm sm:text-base ${className ? className : ''}`}>
       {children}
@@ -47,7 +47,7 @@ export function H4({ children, className, dataTestId }: Props) {
   );
 }
 
-export function H5({ children, className, dataTestId }: Props) {
+export function Text5({ children, className, dataTestId }: Props) {
   return (
     <h5 data-testid={dataTestId} className={`text-xs sm:text-sm ${className ? className : ''}`}>
       {children}

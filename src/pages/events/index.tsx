@@ -3,7 +3,7 @@ import PlusIcon from '../../assets/icon/Plus';
 import { ListEvents } from '../../components/pageEvent/ListEvents';
 import { Button } from '../../components/shared/Button';
 import { Container } from '../../components/shared/Container';
-import { H1 } from '../../components/shared/Texts';
+import { Text1 } from '../../components/shared/Texts';
 
 import WithAuthentication from '../../components/shared/WithAuthentication';
 import useEvents from '../../hooks/pageEvents/useEvents';
@@ -28,7 +28,7 @@ function Events() {
           }
         >
           <div className={' h-10 w-10 sm:hidden'} />
-          <H1 className={'border-b-2 sm:border-0'}>{'Eventos'}</H1>
+          <Text1 className={'border-b-2 sm:border-0'}>{'Eventos'}</Text1>
           <button className={'flex h-10 w-10 justify-center items-center'} type={'button'} onClick={handleCreateEventClick}>
             <PlusIcon />
           </button>
