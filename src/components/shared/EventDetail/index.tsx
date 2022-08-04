@@ -27,8 +27,13 @@ export function EventDetail({
   title,
   date
 }: Props) {
-  const { handleCloseCalendar, handleOpenCalendar, normalizedDateEvent, showCalendar } =
-    useEventDetail(date);
+  const {
+    handleCloseCalendar,
+    normalizedDateEvent,
+    handleOpenCalendar,
+    showCalendar,
+    handleCancel,
+  } = useEventDetail(date);
   return (
     <div>
       <form
@@ -59,11 +64,25 @@ export function EventDetail({
         <div className={'grid grid-cols-4 h-fit w-full flex-row items-center gap-6 mb-6'}>
           <Text4 className={'col-span-1'}>{'Hora:'}</Text4>
           <div className={'col-span-1'}>
-            <InputNumber min={0} max={24} maxLength={2} defaultValue={'00'} className={'w-[55px]'} id={'eventHour'} />
+            <InputNumber
+              min={0}
+              max={24}
+              maxLength={2}
+              defaultValue={'00'}
+              className={'w-[55px]'}
+              id={'eventHour'}
+            />
           </div>
           <Text4 className={'col-span-1'}>{'Minuto:'}</Text4>
           <div className={'col-span-1'}>
-            <InputNumber min={0} max={60} maxLength={2} defaultValue={'00'} className={'w-[55px]'} id={'eventMinute'} />
+            <InputNumber
+              min={0}
+              max={60}
+              maxLength={2}
+              defaultValue={'00'}
+              className={'w-[55px]'}
+              id={'eventMinute'}
+            />
           </div>
         </div>
         <div className={'flex h-fit w-full flex-col items-center gap-6 mb-20 outline-none'}>
@@ -76,8 +95,15 @@ export function EventDetail({
             />
           </div>
         </div>
-        <div className="flex w-full h-[60px]">
-          <Button isLoading={isLoadingSubmit}>{'Enviar'}</Button>
+        <div className="grid grid-cols-3 gap-10">
+          <div className="flex w-full h-[60px] col-span-1">
+            <Button type={'button'} onClick={handleCancel} isOutlined isLoading={isLoadingSubmit}>
+              {'Cancelar'}
+            </Button>
+          </div>
+          <div className="flex w-full h-[60px] col-span-2">
+            <Button isLoading={isLoadingSubmit}>{'Enviar'}</Button>
+          </div>
         </div>
       </form>
       <Modal closeModal={handleCloseCalendar} show={showCalendar} closeOnBackDrop>
