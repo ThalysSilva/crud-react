@@ -1,14 +1,15 @@
 import { useMutation, useQueryClient } from '@tanstack/react-query';
 import { eventsServices } from '../../services/events';
 import { PayloadDailyEventUpdate } from '../../services/events/types';
-import { handleAxiosError } from '../../utils/Axios/AxiosError';
+import useAxiosUtils from '../../utils/Axios/hooks/useAxiosUtils';
 import { useToast } from '../useToast';
 
 function handleMutate(payload: PayloadDailyEventUpdate) {
-  return eventsServices().updateDetailedEvent(payload);
+  return eventsServices().updateDailyEvent(payload);
 }
 
-export default function useUpdateEditEvent(id: string) {
+export default function useUpdateDailyEvent(id: string) {
+  const { handleAxiosError } = useAxiosUtils();
   const { dispatchToast } = useToast();
   const query = useQueryClient();
   return useMutation(handleMutate, {
@@ -18,8 +19,7 @@ export default function useUpdateEditEvent(id: string) {
       dispatchToast({ title: 'Sucesso !!' });
     },
     onError: (err) => {
-      const { messageError } = handleAxiosError(err);
-      dispatchToast({ title: 'Error !!', description: messageError });
+      handleAxiosError(err);
     }
   });
 }
