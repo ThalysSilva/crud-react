@@ -2,6 +2,7 @@ import React, { Dispatch, FormEvent, SetStateAction } from 'react';
 
 import { InputNumber } from '../CustomInputs/InputNumber';
 import useEventDetail from './hooks/useEventDetail';
+import 'react-calendar/dist/Calendar.css';
 import { TextArea } from '../textArea';
 import Calendar from 'react-calendar';
 import { Modal } from '../../Modal';
