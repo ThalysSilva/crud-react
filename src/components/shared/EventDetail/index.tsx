@@ -32,7 +32,7 @@ export function EventDetail({
     normalizedDateEvent,
     handleOpenCalendar,
     showCalendar,
-    handleCancel,
+    handleCancel
   } = useEventDetail(date);
   return (
     <div>
@@ -51,7 +51,7 @@ export function EventDetail({
 
         <div className={'grid grid-cols-4 h-fit w-full flex-row items-center gap-6 mb-6'}>
           <Text4 className={'col-span-1'}>{'Data:'}</Text4>
-          <div className={'col-span-1'}>
+          <div className={'col-span-2'}>
             <button
               onClick={handleOpenCalendar}
               type="button"
@@ -85,6 +85,18 @@ export function EventDetail({
             />
           </div>
         </div>
+        <div className={`relative grid grid-cols-4 h-fit items-center w-full flex-row gap-6 mb-6`}>
+          <Text4 className={' col-span-1 '}>{'Cor:'}</Text4>
+          <div className={'col-span-3'}>
+            <input
+              className={'bg-transparent rounded-xl'}
+              type="color"
+              id="eventColor"
+              defaultValue="#ff0000"
+            />
+          </div>
+        </div>
+
         <div className={'flex h-fit w-full flex-col items-center gap-6 mb-20 outline-none'}>
           <Text4>{'Descrição'}</Text4>
           <div className={'w-full '}>
@@ -97,7 +109,7 @@ export function EventDetail({
         </div>
         <div className="grid grid-cols-3 gap-10">
           <div className="flex w-full h-[60px] col-span-1">
-            <Button type={'button'} onClick={handleCancel} isOutlined isLoading={isLoadingSubmit}>
+            <Button type={'button'} onClick={handleCancel} isOutlined>
               {'Cancelar'}
             </Button>
           </div>

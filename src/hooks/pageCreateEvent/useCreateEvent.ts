@@ -10,24 +10,28 @@ export default function useCreateEvent() {
   const [dateEvent, setDateEvent] = useState(new Date());
   const [normalizedDateEvent] = normalizeDateToString(dateEvent).split(' ');
 
-
   function handleSubmit(e: FormEvent) {
     e.preventDefault();
     const descriptionElement = document.getElementById('eventDescription') as HTMLInputElement;
     const minuteElement = document.getElementById('eventMinute') as HTMLInputElement;
     const titleElement = document.getElementById('eventTitle') as HTMLInputElement;
+    const colorElement = document.getElementById('eventHour') as HTMLInputElement;
     const hourElement = document.getElementById('eventHour') as HTMLInputElement;
     const minute = normalizeCharacter(minuteElement.value);
     const hour = normalizeCharacter(hourElement.value);
 
     const titulo = titleElement.value;
     const descricao = descriptionElement.value;
+    const cor = colorElement.value;
 
     const reverseDate = normalizedDateEvent.replaceAll('/', '-').split('-').reverse().join('-');
     const data = reverseDate + ' ' + hour + ':' + minute + ':' + '00';
 
     const payload: PayloadDailyEvent = {
-      data,titulo,descricao, cor: '#000'
+      descricao,
+      titulo,
+      data,
+      cor,
     };
     mutate(payload);
   }
@@ -36,6 +40,6 @@ export default function useCreateEvent() {
     setDateEvent,
     dateEvent,
     isLoading,
-    handleSubmit,
+    handleSubmit
   };
 }

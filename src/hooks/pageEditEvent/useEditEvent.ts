@@ -17,9 +17,11 @@ export default function useEditEvent(id: string) {
     if (!evento) return;
     const hourElement = document.getElementById('eventHour') as HTMLInputElement;
     const minuteElement = document.getElementById('eventMinute') as HTMLInputElement;
+    const colorElement = document.getElementById('eventColor') as HTMLInputElement;
     const [dateString, timeString] = evento.data.split(' ');
     const [hour, minute, second] = timeString.split(':');
     const [year, month, day] = dateString.split('-');
+    const color = evento.cor;
 
     setDateEvent(
       new Date(
@@ -33,6 +35,7 @@ export default function useEditEvent(id: string) {
     );
     if (hourElement && hour) hourElement.value = hour;
     if (minuteElement && minute) minuteElement.value = minute;
+    if (colorElement && color) colorElement.value = color;
   }, [isLoadingQuery]);
 
   function handleSubmit(e: FormEvent) {
@@ -40,7 +43,9 @@ export default function useEditEvent(id: string) {
     const descriptionElement = document.getElementById('eventDescription') as HTMLInputElement;
     const minuteElement = document.getElementById('eventMinute') as HTMLInputElement;
     const titleElement = document.getElementById('eventTitle') as HTMLInputElement;
+    const colorElement = document.getElementById('eventColor') as HTMLInputElement;
     const hourElement = document.getElementById('eventHour') as HTMLInputElement;
+
     
     const minute = normalizeCharacter(minuteElement.value);
     const hour = normalizeCharacter(hourElement.value);
@@ -48,6 +53,7 @@ export default function useEditEvent(id: string) {
     const descricao =
       descriptionElement.value == evento?.descricao ? undefined : descriptionElement.value;
     const titulo = titleElement.value == evento?.titulo ? undefined : titleElement.value;
+    const cor = colorElement.value == evento?.cor ? undefined : colorElement.value;
     const reverseDate = normalizedDateEvent.replaceAll('/', '-').split('-').reverse().join('-');
     const mountedDate = reverseDate + ' ' + hour + ':' + minute + ':' + '00';
     const data = evento?.data == '0000-00-00 00:00:00' ? mountedDate : 
@@ -57,6 +63,7 @@ export default function useEditEvent(id: string) {
       descricao,
       titulo,
       data,
+      cor,
       id
     };
 

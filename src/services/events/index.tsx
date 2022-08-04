@@ -29,9 +29,9 @@ export function eventsServices() {
     const path = events.dailyEventDetail.replace('{id}', payload.id);
     const sendPayload = {
       descricao: payload.descricao,
-      cor: undefined,
       titulo: payload.titulo,
-      data: payload.data
+      data: payload.data,
+      cor: payload.cor
     };
     return await middleware.requestAxios(true).put<DailyEvent>(path, sendPayload);
   }
