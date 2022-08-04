@@ -10,7 +10,7 @@ export function capitalize(string: string) {
 }
 
 export function normalizeCharacter(character: number | string) {
-  if (typeof character === 'string' && character.length) return '00';
+  if (typeof character === 'string' && !character.length) return '00';
   const normalizedCharacter =
     character.toString().length == 1 ? '0' + character.toString() : character.toString();
   return normalizedCharacter;
