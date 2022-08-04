@@ -3,10 +3,10 @@ import React from 'react';
 
 import WithAuthentication from '../../../components/shared/WithAuthentication';
 import useEditEvent from '../../../hooks/pageEditEvent/useEditEvent';
+import { EventDetail } from '../../../components/shared/EventDetail';
 import LoadingSpinner from '../../../assets/icon/LoadingSpinner';
 import { When } from '../../../components/shared/When';
 import 'react-calendar/dist/Calendar.css';
-import { EventDetail } from '../../../components/shared/EventDetail';
 
 function PageEditEvent() {
   const router = useRouter();
