@@ -18,11 +18,11 @@ export function Button(props: ButtonProps) {
       disabled={props.isDisabled || props.isLoading}
       onClick={props.onClick}
       data-testid={props.dataTestId}
-      type={props.type}
+      type={props.type ? props.type : 'submit'}
       className={
         props.isOutlined
-          ? `flex items-center gap-5 px-3 h-10 border border-[#3b74f2] bg-transparent text-[#3b74f2] rounded-xl text-lg font-normal`
-          : `flex flex-1 bg-[#3b74f2] text-white items-center justify-center gap-4 h-full rounded-xl  px-3
+          ? `flex flex-1 border border-[#3b74f2] text-[#3b74f2] items-center justify-center gap-4 h-full rounded-xl  px-3 py-2`
+          : `flex flex-1 bg-[#3b74f2] text-white items-center justify-center gap-4 h-full rounded-xl  px-3 py-2
       hover:bg-[#115bfa] duration-200 ${props.className ? props.className : ''}`
       }
     >
