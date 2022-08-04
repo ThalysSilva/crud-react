@@ -160,28 +160,6 @@ describe(Input.name, () => {
     await waitFor(() => expect(!!input.validationMessage).toBe(true));
   });
 
-  it('Should display border red if hightlightBorderError is enabled if validateResponse.reason is empty', async () => {
-    const mockInputConfigToTest: InputProps = {
-      ...mockInputDefaultConfig,
-      highlightBorderError: true,
-      required: true
-    };
-
-    setup(mockInputConfigToTest);
-
-    const inputContainer = screen.getByTestId('inputContainer');
-    const input = screen.getByTestId('dataTestIdInputMock') as HTMLInputElement;
-
-    input.focus();
-    input.blur();
-    input.focus();
-
-    await waitFor(() =>
-      expect(inputContainer.classList.contains('border-primary-white')).toBe(true)
-    );
-    await waitFor(() => expect(!!input.validity.customError).toBe(false));
-  });
-
   it('Should call function onBlur', async () => {
     const mockInputConfigToTest: InputProps = {
       ...mockInputDefaultConfig,
