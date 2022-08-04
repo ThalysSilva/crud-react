@@ -19,8 +19,12 @@ export function Button(props: ButtonProps) {
       onClick={props.onClick}
       data-testid={props.dataTestId}
       type={props.type}
-      className={`flex flex-1 bg-[#3b74f2] text-white items-center justify-center gap-4 h-full rounded-xl 
-      hover:bg-[#115bfa] duration-200 ${props.className ? props.className : ''}`}
+      className={
+        props.isOutlined
+          ? `flex items-center gap-5 px-3 h-10 border border-[#3b74f2] bg-transparent text-[#3b74f2] rounded-xl text-lg font-normal`
+          : `flex flex-1 bg-[#3b74f2] text-white items-center justify-center gap-4 h-full rounded-xl  px-3
+      hover:bg-[#115bfa] duration-200 ${props.className ? props.className : ''}`
+      }
     >
       {props.isLoading ? (
         <>
