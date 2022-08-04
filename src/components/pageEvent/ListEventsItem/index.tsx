@@ -47,7 +47,7 @@ export function ListEventsItem({ evento }: Props) {
         show={showDeleteModal}
         closeOnBackDrop={!deleteIsLoading}
       >
-        <div className="flex flex-col rounded-xl bg-gray-700 p-5 w-[300px] h-[150px] items-center justify-center">
+        <div className="flex flex-col rounded-xl bg-gray-700 p-5 w-[320px] h-[150px] items-center justify-center">
           <When value={deleteIsLoading}>
             <div className={'flex flex-1 my-auto justify-center items-center'}>
               <LoadingSpinnerIcon />
@@ -58,7 +58,7 @@ export function ListEventsItem({ evento }: Props) {
               {'Tem certeza que deseja deletar o evento ?'}
             </Text4>
 
-            <div className={'flex flex-row gap-6 h-10'}>
+            <div className={'flex flex-row gap-6 h-14 w-full'}>
               <Button
                 type={'button'}
                 onClick={handleCloseDeleteModal}
@@ -67,7 +67,7 @@ export function ListEventsItem({ evento }: Props) {
               >
                 <Text4 className="text-center">{'Não'}</Text4>
               </Button>
-              <Button type={'button'} onClick={handleDeleteDailyEvent} className={'flex h-full'}>
+              <Button type={'button'} onClick={handleDeleteDailyEvent}>
                 <Text4 className="text-center">{'Sim, quero deletar'}</Text4>
               </Button>
             </div>
