@@ -25,7 +25,7 @@ export function eventsServices() {
     return await middleware.requestAxios(true).get<DailyEvent>(path);
   }
 
-  async function updateDetailedEvent(payload: PayloadDailyEventUpdate) {
+  async function updateDailyEvent(payload: PayloadDailyEventUpdate) {
     const path = events.dailyEventDetail.replace('{id}', payload.id);
     const sendPayload = {
       descricao: payload.descricao,
@@ -36,14 +36,14 @@ export function eventsServices() {
     return await middleware.requestAxios(true).put<DailyEvent>(path, sendPayload);
   }
 
-  async function removeDetailedEvent(id: string) {
+  async function DeleteDailyEvent(id: string) {
     const path = events.dailyEventDetail.replace('{id}', id);
     return await middleware.requestAxios(true).delete<DeleteDailyEventData>(path);
   }
 
   return {
-    updateDetailedEvent,
-    removeDetailedEvent,
+    updateDailyEvent,
+    DeleteDailyEvent,
     createDailyEvent,
     getEventDetail,
     getListEvents
