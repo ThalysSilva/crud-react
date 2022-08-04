@@ -19,7 +19,7 @@ function Events() {
       </div>
       <Container
         className={
-          'flex flex-col relative flex-1 max-h-[700px] sm:rounded-2xl  min-w-[450px] bg-transparent p-4'
+          'flex flex-col relative flex-1 h-fit sm:rounded-2xl  min-w-[450px] bg-transparent p-4'
         }
       >
         <div
@@ -27,7 +27,6 @@ function Events() {
             'flex flex-row  sm:border-b-2 mb-4 px-6 pb-1 sm:px-2 sm:mx-4 justify-between items-center'
           }
         >
-          <div className={' h-10 w-10 sm:hidden'} />
           <Text1 className={'border-b-2 sm:border-0'}>{'Eventos'}</Text1>
           <button className={'flex h-10 w-10 justify-center items-center'} type={'button'} onClick={handleCreateEventClick}>
             <PlusIcon />
