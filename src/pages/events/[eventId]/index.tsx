@@ -21,7 +21,7 @@ function PageEditEvent() {
   } = useEditEvent(eventId as string);
 
   return (
-    <div className={'flex flex-col w-full h-screen sm:w-[470px]  items-center justify-center '}>
+    <div className={'flex flex-col w-screen h-screen sm:w-[470px]  items-center justify-center '}>
       <When value={isLoadingQuery}>
         <div className={'flex flex-1 my-auto justify-center items-center'}>
           <LoadingSpinner />

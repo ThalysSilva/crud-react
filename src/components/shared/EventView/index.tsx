@@ -31,7 +31,7 @@ export function EventView({ isLoadingSubmit, description, onSubmit, setDate, tit
     <div>
       <form
         className={
-          'flex flex-col items-center justify-center w-screen h-screen sm:h-fit sm:w-[470px] bg-gray-900 p-8 sm:rounded-xl'
+          'flex flex-col  items-center justify-center w-screen h-screen sm:h-fit sm:w-[470px] bg-gray-900 p-8 sm:rounded-xl'
         }
         onSubmit={onSubmit}
       >

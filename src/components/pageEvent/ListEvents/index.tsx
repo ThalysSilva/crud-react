@@ -19,7 +19,7 @@ export function ListEvents() {
           </div>
         </When>
         <When value={!isLoading}>
-          <div className='relative max-h-[650px] overflow-x-hidden  p-6'>
+          <div className='relative max-h-[600px] overflow-x-hidden  p-6'>
             {listEvents &&
               listEvents.map((evento, index) => <ListEventsItem key={index} evento={evento} />)}
           </div>
