@@ -1,4 +1,5 @@
 import React from 'react';
+import { normalizeDateToString } from '../../../utils/functions';
 import { Text3, Text4, Text5 } from '../../shared/Texts';
 import { DailyEvent } from '../ListEventsItem/types';
 
@@ -15,22 +16,22 @@ export function ListEventsItemContent({ evento }: Props) {
         <Text4>{descricao}</Text4>
       </div>
 
-      <div className={'flex flex-row justify-between items-center gap-6'}>
+      <div className={'flex flex-row justify-between items-end gap-6'}>
         <div className={'max-w-[100px]'}>
           <Text3>{'Data'}</Text3>
-          <Text4>{data}</Text4>
+          <Text4>{data.replaceAll('-', '/')}</Text4>
         </div>
 
         <div className={'flex flex-col '}>
         
-          <div className={'flex flex-col'}>
+          <div className={'flex flex-col mb-2'}>
             <Text4>{'Criado em'}</Text4>
-            <Text5>{created_at ? created_at : '- -'}</Text5>
+            <Text5>{created_at ? normalizeDateToString(new Date(created_at)) : '- -'}</Text5>
           </div>
 
           <div className={'flex flex-col'}>
             <Text4 >{'Atualizado em'}</Text4>
-            <Text5>{updated_at ? updated_at : '- -'}</Text5>
+            <Text5>{updated_at ? normalizeDateToString(new Date(updated_at)) : '- -'}</Text5>
           </div>
         </div>
       </div>
