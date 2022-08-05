@@ -12,7 +12,7 @@ import {
 export function eventsServices() {
   const { events } = config.apiRoutes;
 
-  async function getListEvents() {
+  async function getListDailyEvents() {
     return await middleware.requestAxios(true).get<GetDailyEventData>(events.dailyEvents);
   }
 
@@ -20,7 +20,7 @@ export function eventsServices() {
     return await middleware.requestAxios(true).post<DailyEvent>(events.dailyEvents, payload);
   }
 
-  async function getEventDetail(id: string) {
+  async function getDailyEventDetail(id: string) {
     const path = events.dailyEventDetail.replace('{id}', id);
     return await middleware.requestAxios(true).get<DailyEvent>(path);
   }
@@ -42,10 +42,10 @@ export function eventsServices() {
   }
 
   return {
+    getDailyEventDetail,
+    getListDailyEvents,
     updateDailyEvent,
     DeleteDailyEvent,
-    createDailyEvent,
-    getEventDetail,
-    getListEvents
+    createDailyEvent
   };
 }

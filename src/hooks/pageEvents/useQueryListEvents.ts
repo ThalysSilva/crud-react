@@ -3,7 +3,7 @@ import { eventsServices } from '../../services/events';
 
 function listEventsQuery() {
   return eventsServices()
-    .getListEvents()
+    .getListDailyEvents()
     .then((res) => res.data);
 }
 

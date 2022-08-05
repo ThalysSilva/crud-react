@@ -2,7 +2,7 @@ import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
 import { normalizeDateToString } from '../../../../utils/functions';
 
-export default function useEventDetail(dateEvent: Date) {
+export default function useEventView(dateEvent: Date) {
   const [normalizedDateEvent] = normalizeDateToString(dateEvent).split(' ');
   const [showCalendar, setShowCalendar] = useState(false);
   const router = useRouter();

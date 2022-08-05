@@ -4,7 +4,7 @@ import { eventsServices } from '../services/events';
 function eventDetailQuery(id: string) {
   if (!id) return;
   return eventsServices()
-    .getEventDetail(id)
+    .getDailyEventDetail(id)
     .then((res) => res.data);
 }
 

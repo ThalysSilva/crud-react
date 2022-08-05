@@ -1,7 +1,7 @@
 import React, { Dispatch, FormEvent, SetStateAction } from 'react';
 
 import { InputNumber } from '../CustomInputs/InputNumber';
-import useEventDetail from './hooks/useEventDetail';
+import useEventView from './hooks/useEventView';
 import 'react-calendar/dist/Calendar.css';
 import { TextArea } from '../textArea';
 import Calendar from 'react-calendar';
@@ -19,7 +19,7 @@ type Props = {
   date: Date;
 };
 
-export function EventDetail({
+export function EventView({
   isLoadingSubmit,
   description,
   onSubmit,
@@ -33,7 +33,7 @@ export function EventDetail({
     handleOpenCalendar,
     showCalendar,
     handleCancel
-  } = useEventDetail(date);
+  } = useEventView(date);
   return (
     <div>
       <form

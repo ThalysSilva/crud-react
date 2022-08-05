@@ -3,7 +3,7 @@ import React from 'react';
 
 import WithAuthentication from '../../../components/shared/WithAuthentication';
 import useEditEvent from '../../../hooks/pageEditEvent/useEditEvent';
-import { EventDetail } from '../../../components/shared/EventDetail';
+import { EventView } from '../../../components/shared/EventView';
 import LoadingSpinner from '../../../assets/icon/LoadingSpinner';
 import { When } from '../../../components/shared/When';
 import 'react-calendar/dist/Calendar.css';
@@ -28,7 +28,7 @@ function PageEditEvent() {
         </div>
       </When>
       <When value={!isLoadingQuery}>
-        <EventDetail
+        <EventView
           isLoadingSubmit={isLoadingMutate}
           description={evento?.descricao}
           onSubmit={handleSubmit}
