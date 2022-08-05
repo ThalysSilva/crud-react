@@ -26,7 +26,7 @@ export function ListEventsItem({ evento }: Props) {
   } = useListEventsItems(evento);
 
   return (
-    <div className="flex flex-row h-[220px] sm:h-[245px] w-full items-center bg-gray-700 p-4 rounded-xl mb-6">
+    <div className="flex flex-row h-[240px] sm:h-[280px] w-full items-center bg-gray-700 p-4 rounded-xl mb-6">
       <div className={`flex  h-full w-1 rounded-full mr-4`} style={{ backgroundColor: color }} />
       <div className={'flex flex-1 flex-col'}>
         <div className={'flex flex-row justify-between items-center mb-4'}>
