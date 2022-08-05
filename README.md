@@ -1,34 +1,64 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+## CRUD React
 
-## Getting Started
+Esse é um projeto criado no intuito de apresentar uma manipulação de exibir uma lista, editar um item da lista, criar um item da lista e remover um item da lista. Todos as rotas estão protegidas utilizando JWT.O Projeto foi feito utilizando as premissas do design Mobile first.
 
-First, run the development server:
+Segue o link do projeto na vercel: https://crud-react-thalyssilva.vercel.app/
 
-```bash
-npm run dev
-# or
-yarn dev
-```
+Se quiser rodar o projeto na sua máquina, siga as instruções abaixo:
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+-> Baixe o projeto
+-> Crie um arquivo chamado `.env.local` na raiz do seu diretório
+-> Dentro do `.env.local` adicione a seguinte linha: `NEXT_PUBLIC_BASE_URL=https://api.jsonbin.io/v3/b`
+-> Pelo terminal, acesse a pasta do projeto
+-> Rode os seguintes comandos:
+`npm install`
+`npm run dev`
+-> Acesse o  http://localhost:3000 no seu navegador.
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+As tecnologias utilizadas nesse projeto foram:
+* Next.js
+* JWT
+* React com Context Api / Hooks
+* React-query V4
+* Jest.js
+* Eslint
+* Tailwind
+* Typescript
 
-## Learn More
 
-To learn more about Next.js, take a look at the following resources:
+---
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## CRUD React
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+This project was created to demonstrate an manipulation of display an list, edit an item of this list, create more items to this list and remove an item of list. all routes are protected using JWT. The Project was made using the premises of Mobile fist design pattern.
 
-## Deploy on Vercel
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+This is my project in vercel: https://crud-react-thalyssilva.vercel.app/
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+
+If you want run this project in your PC, folow the instructions below:
+
+-> Download the project to your pc
+-> Create a file with name `.env.local` in directory root
+-> Inside on `.env.local` add below row: `NEXT_PUBLIC_BASE_URL=https://api.jsonbin.io/v3/b`
+-> In terminal, access the directory project
+-> Run this commands:
+`npm install`
+`npm run dev`
+-> In browser navigate to http://localhost:3000.
+
+
+
+The technologies used in this project is:
+* Next.js
+* JWT
+* React with Context Api / Hooks
+* React-query V4
+* Jest.js
+* Eslint
+* Tailwind
+* Typescript
+
+Hope you enjoy it, I accept feedbacks!
