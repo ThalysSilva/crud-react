@@ -15,7 +15,7 @@ export default function useCreateEvent() {
     const descriptionElement = document.getElementById('eventDescription') as HTMLInputElement;
     const minuteElement = document.getElementById('eventMinute') as HTMLInputElement;
     const titleElement = document.getElementById('eventTitle') as HTMLInputElement;
-    const colorElement = document.getElementById('eventHour') as HTMLInputElement;
+    const colorElement = document.getElementById('eventColor') as HTMLInputElement;
     const hourElement = document.getElementById('eventHour') as HTMLInputElement;
     const minute = normalizeCharacter(minuteElement.value);
     const hour = normalizeCharacter(hourElement.value);
