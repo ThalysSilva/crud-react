@@ -8,7 +8,7 @@ function PageCreateEvent() {
   const { setDateEvent, handleSubmit, isLoading, dateEvent } = useCreateEvent();
 
   return (
-    <div className={'flex flex-col w-screen h-screen sm:w-[470px]  items-center justify-center '}>
+    <div className={'flex flex-col w-full h-screen sm:w-[470px]  items-center justify-center '}>
       <EventView
         isLoadingSubmit={isLoading}
         onSubmit={handleSubmit}
