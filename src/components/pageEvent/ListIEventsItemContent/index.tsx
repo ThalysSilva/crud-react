@@ -9,6 +9,8 @@ type Props = {
 
 export function ListEventsItemContent({ evento }: Props) {
   const { descricao, data, created_at, updated_at } = evento;
+  const [dateString, timeString] = evento.data.split(' ');
+  const normalizedDataEvento = dateString.split('-').reverse().join('/') + ' ' + timeString;
   return (
     <div className={'grid grid-rows-2 gap-2'}>
       <div>
@@ -19,7 +21,7 @@ export function ListEventsItemContent({ evento }: Props) {
       <div className={'flex flex-row justify-between items-end gap-6'}>
         <div className={'max-w-[100px]'}>
           <Text3>{'Data'}</Text3>
-          <Text4>{data.replaceAll('-', '/')}</Text4>
+          <Text4>{normalizedDataEvento}</Text4>
         </div>
 
         <div className={'flex flex-col '}>

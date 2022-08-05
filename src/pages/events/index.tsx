@@ -11,7 +11,7 @@ import useEvents from '../../hooks/pageEvents/useEvents';
 function Events() {
   const { handleCreateEventClick, signOut } = useEvents();
   return (
-    <div className={'flex flex-1 flex-col min-w-[450px] sm:max-w-[640px] py-5'}>
+    <div className={'flex w-full h-screen flex-col min-w-[360px] sm:max-w-[640px] py-5'}>
       <div className={'flex flex-col items-end h-10 w-full mb-5'}>
         <Button onClick={signOut} className={'flex p-4  mr-5 '}>
           {'Efetuar Logout'}
@@ -19,7 +19,7 @@ function Events() {
       </div>
       <Container
         className={
-          'flex flex-col relative flex-1 h-fit sm:rounded-2xl  min-w-[450px] bg-transparent p-4'
+          'flex flex-col relative flex-1 h-fit sm:rounded-2xl  min-w-[360px] bg-transparent p-4'
         }
       >
         <div
