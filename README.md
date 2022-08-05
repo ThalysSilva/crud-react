@@ -8,7 +8,7 @@ Se quiser rodar o projeto na sua máquina, siga as instruções abaixo:
 
 -> Baixe o projeto
 -> Crie um arquivo chamado `.env.local` na raiz do seu diretório
--> Dentro do `.env.local` adicione a seguinte linha: `NEXT_PUBLIC_BASE_URL=https://api.jsonbin.io/v3/b`
+-> Dentro do `.env.local` adicione a seguinte linha: `NEXT_PUBLIC_BASE_URL=https://api.carpemundi.com.br/api`
 -> Pelo terminal, acesse a pasta do projeto
 -> Rode os seguintes comandos:
 `npm install`
