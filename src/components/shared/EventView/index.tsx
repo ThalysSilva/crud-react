@@ -19,14 +19,7 @@ type Props = {
   date: Date;
 };
 
-export function EventView({
-  isLoadingSubmit,
-  description,
-  onSubmit,
-  setDate,
-  title,
-  date
-}: Props) {
+export function EventView({ isLoadingSubmit, description, onSubmit, setDate, title, date }: Props) {
   const {
     handleCloseCalendar,
     normalizedDateEvent,
@@ -45,7 +38,13 @@ export function EventView({
         <div className={`relative grid grid-cols-4 h-fit w-full flex-row items-start gap-6 mb-6`}>
           <Text4 className={'flex flex-1 relative top-2 col-span-1 '}>{'Título:'}</Text4>
           <div className={'col-span-3'}>
-            <Input required defaultValue={title} id={'eventTitle'} autoComplete={'off'} />
+            <Input
+              dataTestId={'eventTitle'}
+              autoComplete={'off'}
+              defaultValue={title}
+              id={'eventTitle'}
+              required
+            />
           </div>
         </div>
 
@@ -53,9 +52,10 @@ export function EventView({
           <Text4 className={'col-span-1'}>{'Data:'}</Text4>
           <div className={'col-span-2'}>
             <button
-              onClick={handleOpenCalendar}
-              type="button"
               className=" flex rounded-xl w-[120px] justify-center items-center bg-[#3b74f2] hover:bg-[#115bfa] duration-200 p-2"
+              onClick={handleOpenCalendar}
+              data-testid={'eventData'}
+              type="button"
             >
               {normalizedDateEvent}
             </button>
@@ -65,23 +65,25 @@ export function EventView({
           <Text4 className={'col-span-1'}>{'Hora:'}</Text4>
           <div className={'col-span-1'}>
             <InputNumber
-              min={0}
-              max={24}
-              maxLength={2}
-              defaultValue={'00'}
+              dataTestId={'eventHour'}
               className={'w-[55px]'}
+              defaultValue={'00'}
               id={'eventHour'}
+              maxLength={2}
+              max={24}
+              min={0}
             />
           </div>
           <Text4 className={'col-span-1'}>{'Minuto:'}</Text4>
           <div className={'col-span-1'}>
             <InputNumber
-              min={0}
-              max={60}
-              maxLength={2}
-              defaultValue={'00'}
+              dataTestId={'eventMinute'}
               className={'w-[55px]'}
+              defaultValue={'00'}
               id={'eventMinute'}
+              maxLength={2}
+              max={60}
+              min={0}
             />
           </div>
         </div>
@@ -90,9 +92,10 @@ export function EventView({
           <div className={'col-span-3'}>
             <input
               className={'bg-transparent rounded-xl'}
-              type="color"
-              id="eventColor"
-              defaultValue="#ff0000"
+              defaultValue={'#ff0000'}
+              data-testid={'eventColor'}
+              id={'eventColor'}
+              type={'color'}
             />
           </div>
         </div>
@@ -102,8 +105,8 @@ export function EventView({
           <div className={'w-full '}>
             <TextArea
               className={' h-[80px] w-full'}
-              id={'eventDescription'}
               defaultValue={description}
+              id={'eventDescription'}
             />
           </div>
         </div>
