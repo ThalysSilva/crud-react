@@ -16,10 +16,6 @@ export function normalizeCharacter(character: number | string) {
   return normalizedCharacter;
 }
 
-export function reverseString(string: string) {
-  return string;
-}
-
 export function normalizeDateToString(date: Date) {
   const day = normalizeCharacter(date.getDate());
   const month = normalizeCharacter(date.getUTCMonth() + 1);
