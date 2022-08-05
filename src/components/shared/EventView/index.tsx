@@ -31,7 +31,7 @@ export function EventView({ isLoadingSubmit, description, onSubmit, setDate, tit
     <div>
       <form
         className={
-          'flex flex-col items-center justify-center w-full h-screen sm:h-fit bg-gray-900 p-8 sm:rounded-xl'
+          'flex flex-col items-center justify-center w-screen h-screen sm:h-fit sm:w-[470px] bg-gray-900 p-8 sm:rounded-xl'
         }
         onSubmit={onSubmit}
       >
@@ -66,7 +66,7 @@ export function EventView({ isLoadingSubmit, description, onSubmit, setDate, tit
           <div className={'col-span-1'}>
             <InputNumber
               dataTestId={'eventHour'}
-              className={'w-[55px]'}
+              className={'w-[55px] text-center'}
               defaultValue={'00'}
               id={'eventHour'}
               maxLength={2}
@@ -78,7 +78,7 @@ export function EventView({ isLoadingSubmit, description, onSubmit, setDate, tit
           <div className={'col-span-1'}>
             <InputNumber
               dataTestId={'eventMinute'}
-              className={'w-[55px]'}
+              className={'w-[55px] text-center'}
               defaultValue={'00'}
               id={'eventMinute'}
               maxLength={2}
@@ -113,7 +113,7 @@ export function EventView({ isLoadingSubmit, description, onSubmit, setDate, tit
         <div className="grid grid-cols-3 gap-10">
           <div className="flex w-full h-[60px] col-span-1">
             <Button type={'button'} onClick={handleCancel} isOutlined>
-              {'Cancelar'}
+              {'Voltar'}
             </Button>
           </div>
           <div className="flex w-full h-[60px] col-span-2">
