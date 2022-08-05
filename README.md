@@ -42,7 +42,7 @@ If you want run this project in your PC, folow the instructions below:
 
 -> Download the project to your pc
 -> Create a file with name `.env.local` in directory root
--> Inside on `.env.local` add below row: `NEXT_PUBLIC_BASE_URL=https://api.jsonbin.io/v3/b`
+-> Inside on `.env.local` add below row: `NEXT_PUBLIC_BASE_URL=https://api.carpemundi.com.br/api`
 -> In terminal, access the directory project
 -> Run this commands:
 `npm install`
