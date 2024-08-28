@@ -2,6 +2,9 @@
 
 Esse é um projeto criado no intuito de apresentar uma manipulação de exibir uma lista, editar um item da lista, criar um item da lista e remover um item da lista. Todos as rotas estão protegidas utilizando JWT. O Projeto foi feito utilizando as premissas do design Mobile first.
 
+Login: adm@email.com
+Senha: 123123
+
 Segue o link do projeto na vercel: https://crud-react-thalyssilva.vercel.app/
 
 Se quiser rodar o projeto na sua máquina, siga as instruções abaixo:
